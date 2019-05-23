@@ -115,9 +115,9 @@ class Game():
             print("Game Result : ** The Game is a Tie **")
 
     def play_round(self):
-        self.play_sub_round(self.p1, self.p2)
-        self.play_sub_round(self.p3, self.p4)
-        # self.play_sub_round(self.play_sub_round(self.p1, self.p2), self.play_sub_round(self.p3, self.p4))
+        self.winner1 = self.play_sub_round(self.p1, self.p2)
+        self.winner2 = self.play_sub_round(self.p3, self.p4)
+        self.play_sub_round(self.winner1, self.winner2)
 
 
     def play_sub_round(self, c1, c2):
