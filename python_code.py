@@ -99,9 +99,6 @@ class Game():
         self.p4.win = 0
         self.round = 0
         self.game = "initialized"
-        # self.sub_round_one.winner = 0
-        # self.sub_round_two.winner = 0
-        self.winner = " "
 
     # function to announce the winner scenario
     def announce_winner(self):
@@ -114,10 +111,17 @@ class Game():
         else:
             print("Game Result : ** The Game is a Tie **")
 
+
     def play_round(self):
         self.winner1 = self.play_sub_round(self.p1, self.p2)
+        while self.winner1 == "tie":
+            self.winner1 = self.play_sub_round(self.p1, self.p2)
         self.winner2 = self.play_sub_round(self.p3, self.p4)
-        self.play_sub_round(self.winner1, self.winner2)
+        while self.winner2 == "tie":
+            self.winner2 = self.play_sub_round(self.p3, self.p4)
+        self.winner3 = self.play_sub_round(self.winner1, self.winner2)
+        while self.winner3 == "tie":
+            self.winner3 = self.play_sub_round(self.winner1, self.winner2)
 
 
     def play_sub_round(self, c1, c2):
@@ -136,18 +140,17 @@ class Game():
         if beats(move1, move2):
             c1.win += 1
             print(f"Round Result\t: ** {c1.name} Wins **")
-            self.winner = c1
-            return self.winner
+            return c1
         # condition to determine game tie scenario
         elif move1 == move2:
             print("Round Result\t: ** Game Tie **")
-            self.play_sub_round(c1, c2)
+            # self.play_sub_round(c1, c2)
+            return "tie"
         # condition to determine Player2 victory scenario
         else:
             c2.win += 1
             print(f"Round Result\t: ** {c2.name} Wins **")
-            self.winner = c2
-            return self.winner
+            return c2
         # statement to display total score every round
         print(f"Score until now : {c1.name} "
               f"- {c1.win}, {c2.name} - {c2.win}")
