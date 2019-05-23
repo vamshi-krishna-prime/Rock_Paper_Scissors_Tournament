@@ -94,9 +94,13 @@ class Game():
         self.p3.name = "Player 3"
         self.p4.name = "Player 4"
         self.p1.win = 0
+        self.p1.won = 0
         self.p2.win = 0
+        self.p2.won = 0
         self.p3.win = 0
+        self.p3.won = 0
         self.p4.win = 0
+        self.p4.won = 0
         self.round = 0
         self.game = "initialized"
 
@@ -122,6 +126,26 @@ class Game():
         self.winner3 = self.play_sub_round(self.winner1, self.winner2)
         while self.winner3 == "tie":
             self.winner3 = self.play_sub_round(self.winner1, self.winner2)
+        if self.winner3 == self.p1:
+            self.p1.won += 1
+            print(f"** {self.p1.name} wins the round **")
+        elif self.winner3 == self.p2:
+            self.p2.won += 1
+            print(f"** {self.p2.name} wins the round **")
+        elif self.winner3 == self.p3:
+            self.p3.won += 1
+            print(f"** {self.p3.name} wins the round **")
+        elif self.winner3 == self.p4:
+            self.p4.won += 1
+            print(f"** {self.p4.name} wins the round **")
+        print(f"\nIndividual wins\t: {self.p1.name} - {self.p1.win}, "
+              f"{self.p2.name} - {self.p2.win}, "
+              f"{self.p3.name} - {self.p3.win}, "
+              f"{self.p4.name} - {self.p4.win} ")
+        print(f"Total Score\t: {self.p1.name} - {self.p1.won}, "
+              f"{self.p2.name} - {self.p2.won}, "
+              f"{self.p3.name} - {self.p3.won}, "
+              f"{self.p4.name} - {self.p4.won} ")
 
 
     def play_sub_round(self, c1, c2):
