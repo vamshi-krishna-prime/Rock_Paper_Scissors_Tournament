@@ -10,7 +10,7 @@ moves = ['rock', 'paper', 'scissors']
 
 def print_pause(message):
     print(message)
-    time.sleep(0)
+    time.sleep(1)
 
 
 # Parent class
@@ -233,15 +233,19 @@ class Game():
         print_pause("\n----------// GAME OVER! //----------")
 
 
+    def intro(self):
+        print_pause("\n\033[0;35;40m[INFORMATION]\033[1;35;40m")
+        print_pause("Player 1 : youself")
+        print_pause("Player 2 : Random move")
+        print_pause("Player 3 : Mimic opponent's previous move")
+        print_pause("Player 4 : Cycles through 'rock, paper, scissors'\n")
+        print_pause("Each round has 3 sessions")
+        print_pause("Session 1 : Play_off b/w Player 1 and Player 2")
+        print_pause("Session 2 : Play_off b/w Player 3 and Player 4")
+        print_pause("Session 3 : Play_off b/w session 1 and session 2 winners\033[0;37;40m\n")
+
+
 if __name__ == '__main__':
     game = Game(HumanPlayer(), Player(), ReflectPlayer(), CyclePlayer())
-    print_pause("\n\033[0;35;40m[INFORMATION]\033[1;35;40m")
-    print_pause("Player 1 : youself")
-    print_pause("Player 2 : Random move")
-    print_pause("Player 3 : Mimic opponent's previous move")
-    print_pause("Player 4 : Cycles through 'rock, paper, scissors'\n")
-    print_pause("Each round has 3 sessions")
-    print_pause("Session 1 : Play_off b/w Player 1 and Player 2")
-    print_pause("Session 2 : Play_off b/w Player 3 and Player 4")
-    print_pause("Session 3 : Play_off b/w session 1 and session 2 winners\033[0;37;40m\n")
+    game.intro()
     game.play_game()
