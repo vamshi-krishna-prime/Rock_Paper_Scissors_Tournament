@@ -226,29 +226,6 @@ class Game():
         print("Game over!")
 
 
-# Case: If only Game executed directly
-# if __name__ == '__main__':
-    # Case1: For Game between 'Computer - (random move)' and User -
-    # uncomment below line and comment out 'line 164' 'line 167' and 'line 170'
-    # game = Game(Player(), HumanPlayer())
-    # Case2: For Game between 'Computer - (Reflect User Moves)' and 'User' -
-    # uncomment below line and comment out 'line 161' 'line 167' and 'line 170'
-    # game = Game(ReflectPlayer(), HumanPlayer())
-    # Case3: For Game between 'Computer - (Cycle Moves)' and 'User' -
-    # uncomment below line and comment out 'line 161' 'line 164' and 'line 170'
-    # game = Game(CyclePlayer(), HumanPlayer())
-    # Case4: For Game between 'Contant move - (rock)' and 'User' -
-    # uncomment below line and comment out 'line 161' 'line 164' and 'line 167'
-    # game = Game(ConstantPlayer(), HumanPlayer())
-
-    # Game method to play a match of several rounds -
-    # uncomment below line and comment out 'line 177'
-    # game.play_game()
-    # Game method to play a single round -
-    # uncomment below line and comment out 'line 174'
-    # game.play_game_once()
-
-
 if __name__ == '__main__':
     game = Game(HumanPlayer(), Player(), ReflectPlayer(), CyclePlayer())
     print("\n[INFORMATION]\n"
