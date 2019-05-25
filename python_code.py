@@ -12,7 +12,7 @@ moves = ['rock', 'paper', 'scissors']
 # function to print text with a delay
 def print_pause(message):
     print(message)
-    time.sleep(1)
+    time.sleep(0)
 
 
 # Parent class
@@ -83,13 +83,6 @@ class ConstantPlayer(Player):
         pass
 
 
-# 'beats' function, which returns a boolean vaule using game rules
-def beats(one, two):
-    return ((one == 'rock' and two == 'scissors') or
-            (one == 'scissors' and two == 'paper') or
-            (one == 'paper' and two == 'rock'))
-
-
 # 'Game class', which decides the length of the game, announce winner
 # and controls game flow
 class Game():
@@ -150,6 +143,12 @@ class Game():
             # blink's the string 4 times
             self.blink(f"Game Result     : ** {self.winner} wins the "
                        "Game ** ", 4)
+
+    # 'beats' function, which returns a boolean vaule using game rules
+    def beats(self, one, two):
+        return ((one == 'rock' and two == 'scissors') or
+                (one == 'scissors' and two == 'paper') or
+                (one == 'paper' and two == 'rock'))
 
     def play_round(self):
         print_pause("\033[0;30;41m[Session 1]------------\033[1;31;40m")
@@ -215,7 +214,7 @@ class Game():
         c1.learn(move1, move2)
         c2.learn(move2, move1)
         # condition to determine first Player's victory scenario
-        if beats(move1, move2):
+        if self.beats(move1, move2):
             # increment individual wins
             c1.win += 1
             # increment session's wins
