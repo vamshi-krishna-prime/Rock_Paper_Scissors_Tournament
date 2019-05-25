@@ -17,7 +17,7 @@ moves = ['rock', 'paper', 'scissors']
 # function to print text with a delay
 def print_pause(message):
     print(message)
-    time.sleep(0)
+    time.sleep(1)
 
 
 # Parent class
