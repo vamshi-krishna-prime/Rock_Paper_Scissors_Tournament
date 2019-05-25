@@ -41,17 +41,8 @@ class HumanPlayer(Player):
 
 # Reflect class, which mimics the opponent's move in the next round
 class ReflectPlayer(Player):
-    def __init__(self):
-        self.round = 0
-
     def move(self):
-        # Since it cannot mimic opponent's move in the first Round
-        # It returns a random move from the 'moves' list
-        while self.round == 0:
-            self.round += 1
-            return RandomPlayer.random_move(self)
-        # returns the opponent's move from the previous round
-        # return self.their_move
+        # returns the "HumanPlayer's" move from previous session
         return game.p1.my_move
 
 
