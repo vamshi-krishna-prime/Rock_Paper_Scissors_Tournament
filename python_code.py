@@ -3,8 +3,13 @@
 # """The Player class is the parent class for all of the Players"""
 
 import random
+import time
 
 moves = ['rock', 'paper', 'scissors']
+
+def print_pause(message):
+    print(message)
+    time.sleep(0)
 
 
 # Parent class
@@ -113,10 +118,10 @@ class Game():
         self.winner = "none"
         self.wins = 0
         self.wins_count = 0
-        print(f"\nTotal Score\t: {self.p1.name} - {self.p1.won}, "
-              f"{self.p2.name} - {self.p2.won}, "
-              f"{self.p3.name} - {self.p3.won}, "
-              f"{self.p4.name} - {self.p4.won} ")
+        print_pause(f"\nTotal Score\t: {self.p1.name} - {self.p1.won}, "
+                    f"{self.p2.name} - {self.p2.won}, "
+                    f"{self.p3.name} - {self.p3.won}, "
+                    f"{self.p4.name} - {self.p4.won} ")
         for self.sublists_1 in self.list[:1]:
             self.wins = self.sublists_1[1]
             self.winner = self.sublists_1[0]
@@ -130,45 +135,45 @@ class Game():
                 self.wins_count += 1
 
         if self.wins_count > 1:
-            print(f"Game Result\t: ** This game ended in a Tie b/w players **")
+            print_pause(f"Game Result\t: ** This game ended in a Tie b/w players **")
         else:
             # print(self.wins)
-            print(f"Game Result\t: ** {self.winner} wins the Game ** ")
+            print_pause(f"Game Result\t: ** {self.winner} wins the Game ** ")
 
 
     def play_round(self):
-        print("[Session 1]------------")
+        print_pause("[Session 1]------------")
         self.winner1 = self.play_sub_round(self.p1, self.p2)
         while self.winner1 == "tie":
             self.winner1 = self.play_sub_round(self.p1, self.p2)
-        print("[Session 2]------------")
+        print_pause("[Session 2]------------")
         self.winner2 = self.play_sub_round(self.p3, self.p4)
         while self.winner2 == "tie":
             self.winner2 = self.play_sub_round(self.p3, self.p4)
-        print("[Session 3]------------")
+        print_pause("[Session 3]------------")
         self.winner3 = self.play_sub_round(self.winner1, self.winner2)
         while self.winner3 == "tie":
             self.winner3 = self.play_sub_round(self.winner1, self.winner2)
         if self.winner3 == self.p1:
             self.p1.won += 1
-            print(f"Round Result\t: ** {self.p1.name} wins the round **")
+            print_pause(f"Round Result\t: ** {self.p1.name} wins the round **")
         elif self.winner3 == self.p2:
             self.p2.won += 1
-            print(f"Round Result\t: ** {self.p2.name} wins the round **")
+            print_pause(f"Round Result\t: ** {self.p2.name} wins the round **")
         elif self.winner3 == self.p3:
             self.p3.won += 1
-            print(f"Round Result\t: ** {self.p3.name} wins the round **")
+            print_pause(f"Round Result\t: ** {self.p3.name} wins the round **")
         elif self.winner3 == self.p4:
             self.p4.won += 1
-            print(f"Round Result\t: ** {self.p4.name} wins the round **")
-        print(f"\nIndividual wins\t: {self.p1.name} - {self.p1.win}, "
+            print_pause(f"Round Result\t: ** {self.p4.name} wins the round **")
+        print_pause(f"\nIndividual wins\t: {self.p1.name} - {self.p1.win}, "
               f"{self.p2.name} - {self.p2.win}, "
               f"{self.p3.name} - {self.p3.win}, "
-              f"{self.p4.name} - {self.p4.win} ")
-        print(f"Total Score\t: {self.p1.name} - {self.p1.won}, "
+              f"{self.p4.name} - {self.p4.win}")
+        print_pause(f"Total Score\t: {self.p1.name} - {self.p1.won}, "
               f"{self.p2.name} - {self.p2.won}, "
               f"{self.p3.name} - {self.p3.won}, "
-              f"{self.p4.name} - {self.p4.won} ")
+              f"{self.p4.name} - {self.p4.won}")
 
     def play_sub_round(self, c1, c2):
         move1 = c1.move()
@@ -177,7 +182,7 @@ class Game():
         # In case user injects a unrecognized input, it loops itself
         while move1 not in moves:
             move1 = c1.move()
-        print(f"{c1.name} played\t: {move1}  \n{c2.name} Played : {move2}")
+        print_pause(f"{c1.name} played\t: {move1}  \n{c2.name} Played : {move2}")
         # Learn opponent's move
         c1.learn(move1, move2)
         c2.learn(move2, move1)
@@ -185,30 +190,30 @@ class Game():
         # condition to determine Player1 victory scenario
         if beats(move1, move2):
             c1.win += 1
-            print(f"Play_off Result\t: ** {c1.name} Wins **")
+            print_pause(f"Play_off Result\t: ** {c1.name} Wins **")
             return c1
         # condition to determine game tie scenario
         elif move1 == move2:
-            print("Play_off Result\t: ** Game Tie **")
+            print_pause("Play_off Result\t: ** Game Tie **")
             # self.play_sub_round(c1, c2)
             return "tie"
         # condition to determine Player2 victory scenario
         else:
             c2.win += 1
-            print(f"Play_off Result\t: ** {c2.name} Wins **")
+            print_pause(f"Play_off Result\t: ** {c2.name} Wins **")
             return c2
         # statement to display total score every round
-        print(f"Score until now : {c1.name} "
+        print_pause(f"Score until now : {c1.name} "
               f"- {c1.win}, {c2.name} - {c2.win}")
 
 
     # Game method to play a match of several rounds
     def play_game(self):
-        print("Game start!")
+        print_pause("----------// GAME START //----------")
         # Case: player does not want to quit / play game again
         while self.game != "quit" and self.game != "no":
             self.round += 1
-            print(f"\n------------[ ROUND {self.round} ]------------")
+            print_pause(f"\n------------[ ROUND {self.round} ]------------")
             self.play_round()
             self.game = input("\nPlay again? Type 'quit' to Quit > ").lower()
             # Condition to handle unrecognized input on 'self.game'
@@ -217,24 +222,24 @@ class Game():
                 self.game = input("Play again? Type 'quit' to Quit > ").lower()
         # function method to announce winner
         self.announce_winner()
-        print("Game over!")
+        print_pause("\n----------// GAME OVER! //----------")
 
     # Game method to play a single round
     def play_game_once(self):
-        print("Game Start!")
+        print_pause("----------// GAME START //----------")
         self.play_round()
-        print("Game over!")
+        print_pause("\n----------// GAME OVER! //----------")
 
 
 if __name__ == '__main__':
     game = Game(HumanPlayer(), Player(), ReflectPlayer(), CyclePlayer())
-    print("\n[INFORMATION]\n"
-          "Player 1 : youself\n"
-          "Player 2 : Random move\n"
-          "Player 3 : Mimic opponent's previous move\n"
-          "Player 4 : Cycles through 'rock, paper, scissors'\n")
-    print("Each round has 3 sessions")
-    print("Session 1 : Play_off b/w Player 1 and Player 2")
-    print("Session 2 : Play_off b/w Player 3 and Player 4")
-    print("Session 3 : Play_off b/w session 1 and session 2 winners\n")
+    print_pause("\n[INFORMATION]")
+    print_pause("Player 1 : youself")
+    print_pause("Player 2 : Random move")
+    print_pause("Player 3 : Mimic opponent's previous move")
+    print_pause("Player 4 : Cycles through 'rock, paper, scissors'\n")
+    print_pause("Each round has 3 sessions")
+    print_pause("Session 1 : Play_off b/w Player 1 and Player 2")
+    print_pause("Session 2 : Play_off b/w Player 3 and Player 4")
+    print_pause("Session 3 : Play_off b/w session 1 and session 2 winners\n")
     game.play_game()
