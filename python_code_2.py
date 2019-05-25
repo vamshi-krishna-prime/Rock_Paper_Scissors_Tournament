@@ -1,5 +1,10 @@
 # install colorama using pip
 # install termcolor using pip
+# [INFORMATION] [python_code_2.py]--------
+# Player 1 : Human player,
+# Player 2 : Random move,
+# Player 3 : Mimic Human player's previous move,
+# Player 4 : Cycles through 'rock, paper, scissors'.
 
 import random
 import time
@@ -299,9 +304,9 @@ class Game():
     # funtion to display information related to the game
     def intro(self):
         print_pause("\n\033[0;30;45m[INFORMATION]--------\033[1;35;40m")
-        print_pause("Player 1 : youself")
+        print_pause("Player 1 : Yourself")
         print_pause("Player 2 : Random move")
-        print_pause("Player 3 : Mimic opponent's previous move")
+        print_pause("Player 3 : Mimic your previous move")
         print_pause("Player 4 : Cycles through 'rock, paper, scissors'\n")
         print_pause("Each round has 3 sessions")
         print_pause("Session 1 : Play_off b/w Player 1 and Player 2")
