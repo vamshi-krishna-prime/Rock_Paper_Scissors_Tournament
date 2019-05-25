@@ -2,12 +2,12 @@
 Python game tournament between different scenarios.
 If using GitBash, install 'colorama' and 'termcolor' using 'pip' before executing the python code.
 [INFORMATION] [python_code.py]--------
-Player 1 : Human player
+Player 1 : Human player,
 Player 2 : Random move,
 Player 3 : Mimic opponent's previous move,
 Player 4 : Cycles through 'rock, paper, scissors.
 [INFORMATION] [python_code_2.py]--------
-Player 1 : Human player
+Player 1 : Human player,
 Player 2 : Random move,
 Player 3 : Mimic Human player's previous move,
 Player 4 : Cycles through 'rock, paper, scissors.
