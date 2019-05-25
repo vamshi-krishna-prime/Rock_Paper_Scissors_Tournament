@@ -1,5 +1,10 @@
 # install colorama using pip
 # install termcolor using pip
+# [INFORMATION] [python_code.py]--------
+# Player 1 : Human player,
+# Player 2 : Random move,
+# Player 3 : Mimic opponent's previous move,
+# Player 4 : Cycles through 'rock, paper, scissors'.
 
 import random
 import time
