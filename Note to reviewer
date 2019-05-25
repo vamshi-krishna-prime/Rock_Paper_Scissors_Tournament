@@ -1,0 +1,3 @@
+As per'RUBRIC PROJECT SPECIFICATIONS', the code must contain "A player that remembers and imitates what the human player did in the previous round".
+'python_code.py' has been upgraded to the condition - "A player that remembers and imitates what the opponent did in the previous round". 
+In case changes to the rubric rule set is not allowed, an another file - 'python_code_2.py' has also been attached for project assessment.
