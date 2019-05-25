@@ -1,6 +1,6 @@
 # Rock_Paper_Scissors_Tournament:
 Python game tournament between different scenarios.
-If you are using GitBash, install 'colorama' and 'termcolor' using 'pip' before executing the python code.
+If using GitBash, install 'colorama' and 'termcolor' using 'pip' before executing the python code.
 [INFORMATION] [python_code.py]--------
 Player 1 : Human player
 Player 2 : Random move,
