@@ -34,9 +34,16 @@ class Player:
 
 # 'Human class', which allows the users to play the game
 class HumanPlayer(Player):
+    def __init__(self):
+        self.human_move = ""
+
     def move(self):
         # return input from the user
-        return input("rock, paper, scissors ? > ").lower()
+        self.human_move = input("rock, paper, scissors ? > ").lower()
+        # loops itself in case player inputs unrecognized text/move
+        while self.human_move not in moves:
+            self.human_move = input("rock, paper, scissors ? > ").lower()
+        return self.human_move
 
 
 # Reflect class, which mimics the opponent's move in the next round
@@ -201,9 +208,6 @@ class Game():
         move1 = c1.move()
         # calls the second player move
         move2 = c2.move()
-        # In case user injects a unrecognized input, it loops itself
-        while move1 not in moves:
-            move1 = c1.move()
         # prints both players moves
         print_pause(f"{c1.name} played\t: {move1}  \n{c2.name} Played"
                     f" : {move2}")
