@@ -17,7 +17,7 @@ moves = ['rock', 'paper', 'scissors']
 # function to print text with a delay
 def print_pause(message):
     print(message)
-    time.sleep(0)
+    time.sleep(1)
 
 
 # Parent class
@@ -39,8 +39,8 @@ class HumanPlayer(Player):
 
     def move(self):
         # return input from the user
-        # return input("rock, paper, scissors ? > ").lower()
         self.human_move = input("rock, paper, scissors ? > ").lower()
+        # loops itself in case player inputs unrecognized text/move
         while self.human_move not in moves:
             self.human_move = input("rock, paper, scissors ? > ").lower()
         return self.human_move
