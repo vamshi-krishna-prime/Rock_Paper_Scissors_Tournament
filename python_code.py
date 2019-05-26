@@ -319,4 +319,3 @@ if __name__ == '__main__':
     game = Game(HumanPlayer(), Player(), ReflectPlayer(), CyclePlayer())
     game.intro()
     game.play_game()
-    
