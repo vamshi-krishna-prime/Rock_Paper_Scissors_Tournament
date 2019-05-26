@@ -1,4 +1,5 @@
-1) As per the review - "code validation with 'pycodestyle' failed on many lines". But the 'python_code.py' file does not exhibit this behaviour in my 'GitBash'. For reference an image(python 3 rps project pycodestyle.JPG) has been attached to this repository. Install 'colorama' and 'termcolor' using pip, if errors persists.
+1) As per the review - "code validation with 'pycodestyle' failed on many lines". But the 'python_code.py' file does not exhibit this behaviour in my 'GitBash'. 
+For reference an image(python 3 rps project pycodestyle.JPG) has been attached to this repository. Install 'colorama' and 'termcolor' using pip, if errors persists.
 2) As per'RUBRIC PROJECT SPECIFICATIONS', the code must contain "A player that remembers and imitates what the human player did in the previous round".
 3) However 'python_code.py' has been upgraded to the condition - "A player that remembers and imitates what the opponent did in the previous round". 
 4)In case, changes to the rubric rule set is not allowed, an another file - 'python_code_2.py' has also been attached for project assessment.
